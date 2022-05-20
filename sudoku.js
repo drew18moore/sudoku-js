@@ -64,6 +64,8 @@ function selectNumber() {
 
 function selectTile() {
     if (numSelected) {
+        if (this.innerText != "")
+            return;
         this.innerText = numSelected.id;
     }
 }
