@@ -1,0 +1,17 @@
+* {
+    text-align: center;
+}
+
+#board {
+    width: 500px;
+    height: 500px;
+    background-color: lightgray;
+    margin: 00 auto;
+}
+
+#numbers {
+    width: 500px;
+    height: 50px;
+    background-color: lightgray;
+    margin:0 auto;
+}
