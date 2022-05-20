@@ -66,6 +66,12 @@ function selectNumber() {
     if (numSelected != null) {
         numSelected.classList.remove("number-selected");
     }
+
+    if (numSelected != null && numSelected.id == this.id) {
+        numSelected.classList.remove("number-selected");
+        numSelected = null;
+        return;
+    }
     numSelected = this;
     numSelected.classList.add("number-selected");
 }
