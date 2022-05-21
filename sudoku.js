@@ -90,6 +90,10 @@ function selectTile() {
             console.log(board, solution);
             if (board.toString() === solution.toString()) {
                 console.log("YOU WIN!!!");
+                document.querySelectorAll(".tile").forEach(x => {
+                    x.classList.remove("tile-start")
+                    x.classList.add("tile-win");
+                });
             }
         } else {
             console.log("INCORRECT!!! (GUESS", numSelected.id, ", SOLUTION", solution[r][c] + ")");

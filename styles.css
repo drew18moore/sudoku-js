@@ -59,3 +59,8 @@
 .vertical-line {
     border-right: 1px solid black;
 }
+
+.tile-win {
+    background-color: limegreen;
+    border: 1px solid green;
+}
