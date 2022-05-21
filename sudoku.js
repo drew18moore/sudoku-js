@@ -1,5 +1,5 @@
 var numSelected = null;
-var  tileSelected = null;
+var tileSelected = null;
 
 var errors = 0;
 
@@ -80,6 +80,20 @@ function selectTile() {
     if (numSelected) {
         if (this.innerText != "")
             return;
-        this.innerText = numSelected.id;
+        r = parseInt(this.id.split("-")[0]);
+        c = parseInt(this.id.split("-")[1]);
+        if (solution[r][c] == numSelected.id) {
+            console.log("CORRECT!!! (GUESS", numSelected.id, ", SOLUTION", solution[r][c] + ")");
+            this.innerText = numSelected.id;
+            //board[r].replaceAt(c, numSelected.id);
+            board[r] = board[r].substring(0, c) + numSelected.id + board[r].substring(c + 1);
+            console.log(board, solution);
+            if (board.toString() === solution.toString()) {
+                console.log("YOU WIN!!!");
+            }
+        } else {
+            console.log("INCORRECT!!! (GUESS", numSelected.id, ", SOLUTION", solution[r][c] + ")");
+            return;
+        }
     }
 }
