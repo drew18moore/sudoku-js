@@ -4,27 +4,27 @@ var tileSelected = null;
 var errors = 0;
 
 var board = [
-    "--74916-5",
-    "2---6-3-9",
-    "-----7-1-",
-    "-586----4",
-    "--3----9-",
-    "--62--187",
-    "9-4-7---2",
-    "67-83----",
-    "81--45---"
+    [0, 0, 7, 4, 9, 1, 6, 0, 5],
+    [0, 0, 0, 0, 6, 0, 3, 0, 9],
+    [0, 0, 0, 0, 0, 7, 0, 1, 0],
+    [0, 5, 8, 6, 0, 0, 0, 0, 4],
+    [0, 0, 3, 0, 0, 0, 0, 9, 0],
+    [0, 0, 6, 2, 0, 0, 1, 8, 7],
+    [9, 0, 4, 0, 7, 0, 0, 0, 2],
+    [6, 7, 0, 8, 3, 0, 0, 0, 0],
+    [8, 1, 0, 0, 4, 5, 0, 0, 0]
 ]
 
 var solution = [
-    "387491625",
-    "241568379",
-    "569327418",
-    "758619234",
-    "123784596",
-    "496253187",
-    "934176852",
-    "675832941",
-    "812945763"
+    [3, 8, 7, 4, 9, 1, 6, 2, 5],
+    [2, 4, 1, 5, 6, 8, 3, 7, 9],
+    [5, 6, 9, 3, 2, 7, 4, 1, 8],
+    [7, 5, 8, 6, 1, 9, 2, 3, 4],
+    [1, 2, 3, 7, 8, 4, 5, 9, 6],
+    [4, 9, 6, 2, 5, 3, 1, 8, 7],
+    [9, 3, 4, 1, 7, 6, 8, 5, 2],
+    [6, 7, 5, 8, 3, 2, 9, 4, 1],
+    [8, 1, 2, 9, 4, 5, 7, 6, 3]
 ]
 
 window.onload = function() {
@@ -47,7 +47,7 @@ function setGame() {
         for (let c = 0; c < 9; c++) {
             let tile  = document.createElement("div");
             tile.id = r.toString() + "-" + c.toString();
-            if (board[r][c] != "-") {
+            if (board[r][c] != 0) {
                 tile.innerText = board[r][c];
                 tile.classList.add("tile-start")
             }
@@ -85,9 +85,7 @@ function selectTile() {
         if (solution[r][c] == numSelected.id) {
             console.log("CORRECT!!! (GUESS", numSelected.id, ", SOLUTION", solution[r][c] + ")");
             this.innerText = numSelected.id;
-            //board[r].replaceAt(c, numSelected.id);
-            board[r] = board[r].substring(0, c) + numSelected.id + board[r].substring(c + 1);
-            console.log(board, solution);
+            board[r][c] = numSelected.id;
             if (board.toString() === solution.toString()) {
                 console.log("YOU WIN!!!");
                 document.querySelectorAll(".tile").forEach(x => {
