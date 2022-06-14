@@ -31,7 +31,7 @@ var solution = [
 
 window.onload = function() {
     const sudoku = new SudokuGenerator();
-    board = sudoku.generateRandomGrid(20);
+    //board = sudoku.generateRandomGrid(20);
     setGame();
 }
 
@@ -84,8 +84,8 @@ function selectTile() {
     if (numSelected) {
         if (this.innerText != "")
             return;
-        r = parseInt(this.id.split("-")[0]);
-        c = parseInt(this.id.split("-")[1]);
+        let r = parseInt(this.id.split("-")[0]);
+        let c = parseInt(this.id.split("-")[1]);
         if (solution[r][c] == numSelected.id) {
             console.log("CORRECT!!! (GUESS", numSelected.id, ", SOLUTION", solution[r][c] + ")");
             this.innerText = numSelected.id;
