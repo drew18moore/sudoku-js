@@ -1,3 +1,5 @@
+import { SudokuGenerator } from "./sudoku-generator.js";
+
 var numSelected = null;
 var tileSelected = null;
 
@@ -28,6 +30,8 @@ var solution = [
 ]
 
 window.onload = function() {
+    const sudoku = new SudokuGenerator();
+    board = sudoku.generateRandomGrid(20);
     setGame();
 }
 
